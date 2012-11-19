@@ -124,20 +124,20 @@ class sheetCell:
 
     # Cell Values
     def floatValue(self, value):
-        value = str(value)
+        value = unicode(value)
         self.cell.setAttribute("office:value-type", "float")
         self.cell.setAttribute("office:value", "%s" % value)
         self.cell.addChild(Element("text:p", value))
         return self
 
     def stringValue(self, value):
-        value = str(value)
+        value = unicode(value)
         self.cell.setAttribute("office:value-type", "string")
         self.cell.addChild(Element("text:p", value))
         return self
 
     def floatFormula(self, value, formula):
-        value = str(value)
+        value = unicode(value)
         self.cell.setAttribute("office:value-type", "float")
         self.cell.setAttribute("office:value", "%s" % value)
         self.cell.addChild(Element("text:p", value))
