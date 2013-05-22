@@ -11,7 +11,7 @@ Contents:
 About
 =====
 
-This project is fork of original odslib-python (http://code.google.com/p/odslib-python/), that is fork of ooolib-python.
+This project (https://bitbucket.org/angry_elf/odslib/) is fork of original odslib-python (http://code.google.com/p/odslib-python/), that is fork of ooolib-python.
 
 Installation
 ============

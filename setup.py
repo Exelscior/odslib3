@@ -9,7 +9,7 @@ if __name__ == '__main__':
           description='An easy to use module that creates ODS documents. Fork of original odslib-python (http://code.google.com/p/odslib-python/). Original author: Joseph Colton',
           author='Alexey Loshkarev',
           author_email='elf2001@gmail.com',
-          url='https://github.com/angry-elf/odslib/',
+          url='https://bitbucket.org/angry_elf/odslib/',
           packages=find_packages(),
           license='GPL',
           classifiers=[
