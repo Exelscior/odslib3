@@ -31,13 +31,14 @@ class ODS:
         self._zip_insert(self.savefile, "settings.xml", self.settings.toString())
         self._zip_insert(self.savefile, "styles.xml", self.styles.toString())
         self._zip_insert(self.savefile, "META-INF/manifest.xml", self.manifest.toString())
+        self.savefile.close()
 
     def _zip_insert(self, file, filename, data):
         "Insert a file into the zip archive"
-        
+
         # zip seems to struggle with non-ascii characters
         data = data.encode('utf-8')
-        
+
         now = time.localtime(time.time())[:6]
         info = zipfile.ZipInfo(filename)
         info.date_time = now
