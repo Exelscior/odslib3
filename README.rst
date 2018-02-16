@@ -11,4 +11,5 @@ Installation:
 #############
 
 ``$> git clone https://github.com/Exelscior/odslib3.git && cd odslib3``
+
 ``$> python setup.py {build,install}``
