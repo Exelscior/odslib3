@@ -8,6 +8,7 @@ PyPi project page: https://pypi.python.org/pypi/odslib3
 
 
 Installation:
-```
-$> git clone https://github.com/Exelscior/odslib3.git && cd odslib3
-$> python setup.py {build,install}
+#############
+
+``$> git clone https://github.com/Exelscior/odslib3.git && cd odslib3``
+``$> python setup.py {build,install}``
