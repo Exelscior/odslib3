@@ -1,4 +1,4 @@
-from odsXML import *
+from .odsXML import *
 
 class odsStyles:
     def __init__(self):
@@ -6,8 +6,7 @@ class odsStyles:
         self.initialize()
 
     def toString(self):
-        sstring = '<?xml version="1.0" encoding="UTF-8"?>\n'
-        sstring += self.docStyles.toString()
+        sstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docStyles.toString())
         return sstring
 
     def initialize(self):

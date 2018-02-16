@@ -76,7 +76,7 @@ class Element:
         rline = ''
         for key in self.attributeValues:
             value = self.attributeValues[key]
-            rlist.append("%s='%s'" % (key, value))
+            rlist.append("{}='{}'".format(key, value))
         rline = ' '.join(rlist)
         return rline
 
@@ -103,16 +103,16 @@ class Element:
         # Open the element
         if self.attributeValues:
             # Display attributes
-            rstring = '<%s %s' % (self.element, self.getAttributeString())
+            rstring = '<{} {}'.format(self.element, self.getAttributeString())
         else:
-            rstring = '<%s' % self.element
+            rstring = '<{}'.format(self.element)
         # Display children if they exist
         if self.childrenList:
             rstring += '>'
             for child in self.childrenList:
                 rstring += child.toString()
             # close with children
-            rstring += '</%s>' % self.element
+            rstring += '</{}>'.format(self.element)
         else:
             # close without children
             rstring += '/>'

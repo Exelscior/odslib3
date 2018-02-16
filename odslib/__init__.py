@@ -5,12 +5,12 @@ import glob
 import os
 import re
 
-import odsContent
-import odsMeta
-import odsSettings
-import odsStyles
-import odsMimetype
-import odsManifest
+from . import odsContent
+from . import odsMeta
+from . import odsSettings
+from . import odsStyles
+from . import odsMimetype
+from . import odsManifest
 
 class ODS:
     def __init__(self):

@@ -1,5 +1,5 @@
 import time
-from odsXML import *
+from .odsXML import *
 
 class odsMeta:
     def __init__(self):
@@ -7,8 +7,7 @@ class odsMeta:
         self.initialize()
 
     def toString(self):
-        mstring = '<?xml version="1.0" encoding="UTF-8"?>\n'
-        mstring += self.docMeta.toString()
+        mstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docMeta.toString())
         return mstring
 
     def initialize(self):
@@ -60,9 +59,11 @@ class odsMeta:
         return self
 
     def getISO8601(self):
-        "Calculate and return localtime in ISO 8601 format"
+        """
+        Calculate and return localtime in ISO 8601 format
+        """
         t = time.localtime()
-        stamp = "%04d-%02d-%02dT%02d:%02d:%02d" % (t[0], # Year
+        stamp = "{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}".format(t[0], # Year
                                                    t[1], # Month
                                                    t[2], # MDay
                                                    t[3], # Hour

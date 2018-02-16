@@ -1,4 +1,4 @@
-from odsXML import *
+from .odsXML import *
 
 class odsManifest:
     def __init__(self):
@@ -6,8 +6,7 @@ class odsManifest:
         self.initialize()
 
     def toString(self):
-        mstring = '<?xml version="1.0" encoding="UTF-8"?>\n'
-        mstring += self.docManifest.toString()
+        mstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docManifest.toString())
         return mstring
 
     def initialize(self):

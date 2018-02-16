@@ -2,10 +2,10 @@
 
 import sys
 sys.path.append('..')
-import odslib
+from odslib import ODS
 
 # Create your document
-doc = odslib.ODS()
+doc = ODS()
 
 # Example Title
 titleCell = doc.content.getCell(0, 0)

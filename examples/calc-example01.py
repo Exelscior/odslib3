@@ -1,11 +1,10 @@
 #!/usr/bin/python
 
 import sys
-sys.path.insert(0, '..')
-import odslib
+from odslib import ODS
 
 # Create your document.  In all examples I will call the object doc.
-doc = odslib.ODS()
+doc = ODS()
 
 # Before we can put data into the cell, we need to get the cell object.
 # The getCell(col, row) method can be used for this.  The columns and

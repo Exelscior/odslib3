@@ -1,8 +1,4 @@
-An easy to use module that creates ODS documents. Fork of original odslib-python (http://code.google.com/p/odslib-python/) which looking unmaintained. Applied unicode patch (issue #1 at odslib-python).
-
-Patches are welcome.
-
-
+An easy to use module that creates ODS documents. Fork of odslib (https://github.com/TauPan/odslib) as looking unmaintained. Applied Python3.x support.
 
 Original author: Joseph Colton
 
@@ -11,6 +7,8 @@ Documentation: http://pythonhosted.org/odslib/
 PyPi project page: https://pypi.python.org/pypi/odslib
 
 
-Installation: pip install odslib
-
-
+Installation:
+``
+$> git clone https://github.com/Exelscior/odslib.git && cd odslib
+$> python setup.py {build,install}
+``

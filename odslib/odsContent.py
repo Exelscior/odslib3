@@ -1,4 +1,4 @@
-from odsXML import *
+from .odsXML import *
 
 class sheetCell:
     def __init__(self):
@@ -99,22 +99,22 @@ class sheetCell:
     # Cell Borders
     def setBorderWidth(self, value):
         self.styleBorderWidth = value
-        self.styleBorder = "%s %s %s" % (self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+        self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         return self
 
     def setBorderStyle(self, value):
         self.styleBorderStyle = value
-        self.styleBorder = "%s %s %s" % (self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+        self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         return self
 
     def setBorderColor(self, value):
         self.styleBorderColor = value
-        self.styleBorder = "%s %s %s" % (self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+        self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         return self
 
     def setBorder(self, value=True):
         if value:
-            self.styleBorder = "%s %s %s" % (self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+            self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         else:
             self.styleBorder = ""
         return self
@@ -124,24 +124,24 @@ class sheetCell:
 
     # Cell Values
     def floatValue(self, value):
-        value = unicode(value)
+        value = '{}'.format(value)
         self.cell.setAttribute("office:value-type", "float")
-        self.cell.setAttribute("office:value", "%s" % value)
+        self.cell.setAttribute("office:value", "{}".format(value))
         self.cell.addChild(Element("text:p", value))
         return self
 
     def stringValue(self, value):
-        value = unicode(value)
+        value = '{}'.format(value)
         self.cell.setAttribute("office:value-type", "string")
         self.cell.addChild(Element("text:p", value))
         return self
 
     def floatFormula(self, value, formula):
-        value = unicode(value)
+        value = '{}'.format(value)
         self.cell.setAttribute("office:value-type", "float")
-        self.cell.setAttribute("office:value", "%s" % value)
+        self.cell.setAttribute("office:value", "{}".format(value))
         self.cell.addChild(Element("text:p", value))
-        self.cell.setAttribute("table:formula", "of:%s" % formula)
+        self.cell.setAttribute("table:formula", "of:{}".format(formula))
         return self
 
     # Cell hiding
@@ -154,7 +154,7 @@ class sheetCell:
 
     # Cell XML
     def toString(self):
-        return self.cell.toString()	
+        return self.cell.toString()
 
 class sheetColumn:
     def __init__(self):
@@ -346,7 +346,7 @@ class odsContentStyles:
             # Get attributes
             width = attribTuple[0]
             # Create the style
-            styleID = "co%d" % self.columnIndex
+            styleID = "co{}".format(self.columnIndex)
             self.columnIndex += 1
             # Create the elements
             style = self.autostyles.addChild(Element("style:style"))
@@ -381,7 +381,7 @@ class odsContentStyles:
             # Get attributes
             height = attribTuple[0]
             # Create the style
-            styleID = "ro%d" % self.rowIndex
+            styleID = "ro{}".format(self.rowIndex)
             self.rowIndex += 1
             # Create the elements
             style = self.autostyles.addChild(Element("style:style"))
@@ -439,7 +439,7 @@ class odsContentStyles:
             rotation = attribTuple[8]
             border = attribTuple[9]
             # Create the style
-            styleID = "ce%d" % self.cellIndex
+            styleID = "ce{}".format(self.cellIndex)
             self.cellIndex += 1
             # Create the elements
             style = self.autostyles.addChild(Element("style:style"))
@@ -513,8 +513,7 @@ class odsContent:
         self.currentSheet = 0
 		
     def toString(self):
-        cstring = '<?xml version="1.0" encoding="UTF-8"?>\n'
-        cstring += self.docContent.toString()
+        cstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docContent.toString())
         return cstring
 
     def getSheet(self, sheetIndex):
@@ -550,7 +549,9 @@ class odsContent:
         return None
 
     def mergeCells(self, columnNum, rowNum, colSpan=1, rowSpan=1):
-        "This merge hides later cells, use with caution."
+        """
+        This merge hides later cells, use with caution.
+        """
         cell = self.getCell(columnNum, rowNum)
         # Configure the start cell
         cell.cell.setAttribute("table:number-columns-spanned", colSpan)

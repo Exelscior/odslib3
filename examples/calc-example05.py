@@ -2,10 +2,10 @@
 
 import sys
 sys.path.append('..')
-import odslib
+from odslib import ODS
 
 # Create the document
-doc = odslib.ODS()
+doc = ODS()
 
 # Standard Cell Properties
 # The standard bold, italics, and underline properties can be

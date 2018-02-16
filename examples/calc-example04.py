@@ -2,10 +2,10 @@
 
 import sys
 sys.path.append('..')
-import odslib
+from odslib import ODS
 
 # Create the document
-doc = odslib.ODS()
+doc = ODS()
 
 # Set Column Width
 doc.content.getColumn(0).setWidth('0.5in')

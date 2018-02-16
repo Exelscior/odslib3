@@ -2,10 +2,10 @@
 
 import sys
 sys.path.append('..')
-import odslib
+from odslib import ODS
 
 # Create the document
-doc = odslib.ODS()
+doc = ODS()
 doc.content.getSheet(0).setSheetName("First")
 
 # By default you start on Sheet1.  This has an index of 0 in ooolib.

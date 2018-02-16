@@ -2,10 +2,10 @@
 
 import sys
 sys.path.append('..')
-import odslib
+from odslib import ODS
 
 # Create the document
-doc = odslib.ODS()
+doc = ODS()
 
 # Document Properties
 doc.meta.setTitle('The Search')
