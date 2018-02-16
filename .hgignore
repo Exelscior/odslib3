@@ -3,4 +3,4 @@ build/
 *.pyc
 *~
 dist/
-odslib.egg-info/
+odslib3.egg-info/
