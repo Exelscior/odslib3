@@ -1,7 +1,7 @@
 Module odsMimetype
 ===================
 
-.. automodule:: odslib.odsMimetype
+.. automodule:: odslib3.odsMimetype
    :members:
    :undoc-members:
 

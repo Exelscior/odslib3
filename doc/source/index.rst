@@ -1,9 +1,9 @@
-.. ODSlib documentation master file, created by
+.. ODSlib3 documentation master file, created by
    sphinx-quickstart on Mon Nov 19 09:41:11 2012.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ODSlib's documentation!
+Welcome to ODSlib3's documentation!
 ==================================
 
 Contents:
@@ -11,20 +11,20 @@ Contents:
 About
 =====
 
-This project (https://bitbucket.org/angry_elf/odslib/) is fork of original odslib-python (http://code.google.com/p/odslib-python/), that is fork of ooolib-python.
+This project (https://github.com/Exelscior/odslib3) is fork of odslib (https://github.com/TauPan/odslib), which is a fork of odslib-python (http://code.google.com/p/odslib-python/), which is fork of ooolib-python. (phew)
 
 Installation
 ============
 ::
 
-  pip install odslib
+  pip install odslib3
 
-or
+or to install from the source
 
 ::
 
-  easy_install odslib
-
+   git clone https://github.com/Exelscior/odslib3.git && cd odslib3
+   python setup.py {build, install}
 
 
 API
@@ -41,7 +41,7 @@ Example (django)
 ================
 ::
 
-  from odslib import ODS
+  from odslib3 import ODS
 
   def report(request):
       ods = ODS()

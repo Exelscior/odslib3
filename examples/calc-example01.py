@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
-import sys
-from odslib import ODS
+from odslib3 import ODS
 
 # Create your document.  In all examples I will call the object doc.
 doc = ODS()

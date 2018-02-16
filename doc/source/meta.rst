@@ -1,7 +1,7 @@
 Module odsMeta
 ===================
 
-.. automodule:: odslib.odsMeta
+.. automodule:: odslib3.odsMeta
    :members:
    :undoc-members:
 

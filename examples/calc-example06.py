@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import sys
-sys.path.append('..')
-from odslib import ODS
+from odslib3 import ODS
 
 # Create your document
 doc = ODS()
