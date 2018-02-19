@@ -19,7 +19,7 @@ if __name__ == '__main__':
           url='https://github.com/Exelscior/odslib3',
           packages=find_packages(),
           license='GPL',
-          keywords='ods libreoffice'
+          keywords='ods libreoffice',
           python_requires='>=2.7',
           classifiers=[
               "Development Status :: 5 - Production/Stable", 
