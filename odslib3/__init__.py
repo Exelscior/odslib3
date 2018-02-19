@@ -10,7 +10,7 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-HERE = os.path.abspath(path.dirname(__file__))
+HERE = os.path.abspath(os.path.dirname(__file__))
 
 with open(os.path.join(HERE, '..', 'VERSION.txt'), encoding='utf-8') as f:
         VERSION = f.read()
