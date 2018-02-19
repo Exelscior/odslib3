@@ -13,7 +13,7 @@ if __name__ == '__main__':
     setup(name='odslib3',
           version=VERSION,
           description='An easy to use module that creates ODS documents. Fork of odslib (https://github.com/TauPan/odslib) as looking unmaintained. Original author: Joseph Colton. Adapted for Python3.x support by Joshua Logan',
-          long_description=LONG_DESCRIPTION
+          long_description=LONG_DESCRIPTION,
           author='Joshua Logan',
           author_email='joshua.logan@eveco.re',
           url='https://github.com/Exelscior/odslib3',
