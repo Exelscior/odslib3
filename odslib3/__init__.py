@@ -1,9 +1,7 @@
 import zipfile
 import time
-import sys
-import glob
-import os
-import re
+import os, re
+from io import open
 
 from . import odsContent
 from . import odsMeta
@@ -12,9 +10,9 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-HERE = path.abspath(path.dirname(__file__))
+HERE = os.path.abspath(path.dirname(__file__))
 
-with open(path.join(HERE, '..', 'VERSION.txt'), encoding='utf-8') as f:
+with open(os.path.join(HERE, '..', 'VERSION.txt'), encoding='utf-8') as f:
         VERSION = f.read()
 
 def get_version():
