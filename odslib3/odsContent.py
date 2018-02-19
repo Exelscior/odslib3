@@ -1,5 +1,9 @@
 from .odsXML import *
-
+try:
+    unicode
+except NameError:
+    unicode = str
+    
 class sheetCell:
     def __init__(self):
         self.cell = Element("table:table-cell")
@@ -124,22 +128,22 @@ class sheetCell:
 
     # Cell Values
     def floatValue(self, value):
-        value = '{}'.format(value)
+        value = unicode(value)
         self.cell.setAttribute("office:value-type", "float")
-        self.cell.setAttribute("office:value", "{}".format(value))
+        self.cell.setAttribute("office:value", value)
         self.cell.addChild(Element("text:p", value))
         return self
 
     def stringValue(self, value):
-        value = '{}'.format(value)
+        value = unicode(value)
         self.cell.setAttribute("office:value-type", "string")
         self.cell.addChild(Element("text:p", value))
         return self
 
     def floatFormula(self, value, formula):
-        value = '{}'.format(value)
+        value = unicode(value)
         self.cell.setAttribute("office:value-type", "float")
-        self.cell.setAttribute("office:value", "{}".format(value))
+        self.cell.setAttribute("office:value", value)
         self.cell.addChild(Element("text:p", value))
         self.cell.setAttribute("table:formula", "of:{}".format(formula))
         return self

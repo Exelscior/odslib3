@@ -10,7 +10,7 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-__version__='1.1.1.post5'
+__version__='1.1.2'
 
 def get_version():
     "Returns a PEP 386-compliant version number from __version__."
@@ -42,7 +42,6 @@ class ODS:
 
         # zip seems to struggle with non-ascii characters
         data = data.encode('utf-8')
-
         now = time.localtime(time.time())[:6]
         info = zipfile.ZipInfo(filename)
         info.date_time = now
