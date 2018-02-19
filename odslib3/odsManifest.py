@@ -1,4 +1,8 @@
 from .odsXML import *
+try:
+    _ = unicode
+except NameError:
+    _ = str
 
 class odsManifest:
     def __init__(self):
@@ -6,7 +10,7 @@ class odsManifest:
         self.initialize()
 
     def toString(self):
-        mstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docManifest.toString())
+        mstring = _('<?xml version="1.0" encoding="UTF-8"?>\n{}').format(self.docManifest.toString())
         return mstring
 
     def initialize(self):

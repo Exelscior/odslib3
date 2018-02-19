@@ -1,8 +1,8 @@
 from .odsXML import *
 try:
-    unicode
+    _ = unicode
 except NameError:
-    unicode = str
+    _ = str
     
 class sheetCell:
     def __init__(self):
@@ -103,22 +103,22 @@ class sheetCell:
     # Cell Borders
     def setBorderWidth(self, value):
         self.styleBorderWidth = value
-        self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+        self.styleBorder = _('{} {} {}').format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         return self
 
     def setBorderStyle(self, value):
         self.styleBorderStyle = value
-        self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+        self.styleBorder = _('{} {} {}').format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         return self
 
     def setBorderColor(self, value):
         self.styleBorderColor = value
-        self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+        self.styleBorder = _('{} {} {}').format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         return self
 
     def setBorder(self, value=True):
         if value:
-            self.styleBorder = '{} {} {}'.format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
+            self.styleBorder = _('{} {} {}').format(self.styleBorderWidth, self.styleBorderStyle, self.styleBorderColor)
         else:
             self.styleBorder = ""
         return self
@@ -145,7 +145,7 @@ class sheetCell:
         self.cell.setAttribute("office:value-type", "float")
         self.cell.setAttribute("office:value", value)
         self.cell.addChild(Element("text:p", value))
-        self.cell.setAttribute("table:formula", "of:{}".format(formula))
+        self.cell.setAttribute("table:formula", _("of:{}").format(formula))
         return self
 
     # Cell hiding
@@ -350,7 +350,7 @@ class odsContentStyles:
             # Get attributes
             width = attribTuple[0]
             # Create the style
-            styleID = "co{}".format(self.columnIndex)
+            styleID = _("co{}").format(self.columnIndex)
             self.columnIndex += 1
             # Create the elements
             style = self.autostyles.addChild(Element("style:style"))
@@ -385,7 +385,7 @@ class odsContentStyles:
             # Get attributes
             height = attribTuple[0]
             # Create the style
-            styleID = "ro{}".format(self.rowIndex)
+            styleID = _("ro{}").format(self.rowIndex)
             self.rowIndex += 1
             # Create the elements
             style = self.autostyles.addChild(Element("style:style"))
@@ -443,7 +443,7 @@ class odsContentStyles:
             rotation = attribTuple[8]
             border = attribTuple[9]
             # Create the style
-            styleID = "ce{}".format(self.cellIndex)
+            styleID = _("ce{}").format(self.cellIndex)
             self.cellIndex += 1
             # Create the elements
             style = self.autostyles.addChild(Element("style:style"))
@@ -517,7 +517,7 @@ class odsContent:
         self.currentSheet = 0
 		
     def toString(self):
-        cstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docContent.toString())
+        cstring = _('<?xml version="1.0" encoding="UTF-8"?>\n{}').format(self.docContent.toString())
         return cstring
 
     def getSheet(self, sheetIndex):

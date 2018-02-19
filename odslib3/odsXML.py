@@ -1,3 +1,7 @@
+try:
+    _ = unicode
+except NameError:
+    _ = str
 class Data:
     def __init__(self, data):
         self.type = 'Data'
@@ -103,16 +107,16 @@ class Element:
         # Open the element
         if self.attributeValues:
             # Display attributes
-            rstring = '<{} {}'.format(self.element, self.getAttributeString())
+            rstring = _('<{} {}').format(self.element, self.getAttributeString())
         else:
-            rstring = '<{}'.format(self.element)
+            rstring = _('<{}').format(self.element)
         # Display children if they exist
         if self.childrenList:
             rstring += '>'
             for child in self.childrenList:
                 rstring += child.toString()
             # close with children
-            rstring += '</{}>'.format(self.element)
+            rstring += _('</{}>').format(self.element)
         else:
             # close without children
             rstring += '/>'

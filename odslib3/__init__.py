@@ -10,7 +10,7 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-__version__='1.1.2'
+__version__='1.1.3'
 
 def get_version():
     "Returns a PEP 386-compliant version number from __version__."

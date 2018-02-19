@@ -1,4 +1,8 @@
 from .odsXML import *
+try:
+    _ = unicode
+except NameError:
+    _ = str
 
 class odsSettings:
     def __init__(self):
@@ -6,7 +10,7 @@ class odsSettings:
         self.initialize()
 
     def toString(self):
-        sstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docSettings.toString())
+        sstring = _('<?xml version="1.0" encoding="UTF-8"?>\n{}').format(self.docSettings.toString())
         return sstring
 
     def makeConfigItem(self, configName, configType, data=None):
