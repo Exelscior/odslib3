@@ -12,6 +12,12 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
+VERSION = '1.1.1'
+
+def get_version():
+    "Returns a PEP 386-compliant version number from VERSION."
+    return VERSION
+
 class ODS:
     def __init__(self):
         # Create instances
