@@ -2,7 +2,7 @@ An easy to use module that creates ODS documents. Fork of odslib (https://github
 
 Original author: Joseph Colton
 
-Documentation: http://pythonhosted.org/odslib/
+Documentation: http://odslib3.readthedocs.io/en/master/
 
 PyPi project page: https://pypi.python.org/pypi/odslib3
 
