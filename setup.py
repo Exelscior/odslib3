@@ -3,17 +3,16 @@
 from os import path
 from io import open
 from setuptools import setup, find_packages
+from odslib3 import get_version
 
 HERE = path.abspath(path.dirname(__file__))
 
 with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
     LONG_DESCRIPTION=f.read()
-with open(path.join(HERE, 'VERSION.txt'), encoding='utf-8') as f:
-    VERSION = f.read()
 
 if __name__ == '__main__':
     setup(name='odslib3',
-          version=VERSION,
+          version=get_version(),
           description='An easy to use module that creates ODS documents. Fork of odslib (https://github.com/TauPan/odslib) as looking unmaintained. Original author: Joseph Colton. Adapted for Python3.x support by Joshua Logan',
           long_description=LONG_DESCRIPTION,
           author='Joshua Logan',

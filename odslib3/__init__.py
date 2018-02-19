@@ -1,6 +1,6 @@
 import zipfile
 import time
-import os, re
+import re
 from io import open
 
 from . import odsContent
@@ -10,14 +10,11 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-HERE = os.path.abspath(os.path.dirname(__file__))
-
-with open(os.path.join(HERE, 'VERSION.txt'), encoding='utf-8') as f:
-        VERSION = f.read()
+__version__='1.1.1.post5'
 
 def get_version():
-    "Returns a PEP 386-compliant version number from VERSION."
-    return VERSION
+    "Returns a PEP 386-compliant version number from __version__."
+    return __version__
 
 class ODS:
     def __init__(self):
