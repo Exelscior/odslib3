@@ -12,7 +12,10 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-VERSION = '1.1.1'
+HERE = path.abspath(path.dirname(__file__))
+
+with open(path.join(HERE, '..', 'VERSION.txt'), encoding='utf-8') as f:
+        VERSION = f.read()
 
 def get_version():
     "Returns a PEP 386-compliant version number from VERSION."
