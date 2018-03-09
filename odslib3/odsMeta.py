@@ -1,9 +1,5 @@
-import time
-from .odsXML import *
-try:
-    _ = unicode
-except NameError:
-    _ = str
+import time, sys
+from .odsXML import Element
 
 class odsMeta:
     def __init__(self):
@@ -11,7 +7,10 @@ class odsMeta:
         self.initialize()
 
     def toString(self):
-        mstring = _('<?xml version="1.0" encoding="UTF-8"?>\n{}').format(self.docMeta.toString())
+        if sys.version_info.major > 2:
+            mstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docMeta.toString())
+        else:
+            mstring = unicode('<?xml version="1.0" encoding="UTF-8"?>\n{}').format(self.docMeta.toString())
         return mstring
 
     def initialize(self):
@@ -67,10 +66,19 @@ class odsMeta:
         Calculate and return localtime in ISO 8601 format
         """
         t = time.localtime()
-        stamp = _("{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}").format(t[0], # Year
-                                                   t[1], # Month
-                                                   t[2], # MDay
-                                                   t[3], # Hour
-                                                   t[4], # Minute
-                                                   t[5]) # Second
+        if sys.version_info.major > 2:
+            stamp = "{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}".format(t[0], # Year
+                                                                          t[1], # Month
+                                                                          t[2], # MDay
+                                                                          t[3], # Hour
+                                                                          t[4], # Minute
+                                                                          t[5]) # Second
+        else:
+            stamp = unicode("{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}").format(t[0], # Year
+                                                                          t[1], # Month
+                                                                          t[2], # MDay
+                                                                          t[3], # Hour
+                                                                          t[4], # Minute
+                                                                          t[5]) # Second
+
         return stamp

@@ -10,10 +10,12 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-__version__='1.1.3'
+__version__='1.2.0'
 
 def get_version():
-    "Returns a PEP 386-compliant version number from __version__."
+    """
+    Returns a PEP 386-compliant version number from __version__.
+    """
     return __version__
 
 class ODS:
@@ -38,7 +40,9 @@ class ODS:
         self.savefile.close()
 
     def _zip_insert(self, file, filename, data):
-        "Insert a file into the zip archive"
+        """
+        Insert a file into the zip archive
+        """
 
         # zip seems to struggle with non-ascii characters
         data = data.encode('utf-8')

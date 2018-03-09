@@ -1,7 +1,5 @@
-try:
-    _ = unicode
-except NameError:
-    _ = str
+import sys
+
 class Data:
     def __init__(self, data):
         self.type = 'Data'
@@ -14,6 +12,7 @@ class Data:
         return self.data
 
     def cleanString(self, string):
+        string = str(string) if sys.version_info.major > 2 else unicode(string) 
         string = string.replace("&", "&amp;")
         string = string.replace('"', "&quot;")
         string = string.replace("'", "&apos;")
@@ -38,7 +37,7 @@ class Element:
             self.addChild(self.dataChild)
 
     def cleanString(self, string):
-        string = str(string)
+        string = str(string) if sys.version_info.major > 2 else unicode(string) 
         string = string.replace("&", "&amp;")
         string = string.replace('"', "&quot;")
         string = string.replace("'", "&apos;")
@@ -107,16 +106,16 @@ class Element:
         # Open the element
         if self.attributeValues:
             # Display attributes
-            rstring = _('<{} {}').format(self.element, self.getAttributeString())
+            rstring = '<{} {}'.format(self.element, self.getAttributeString()) if sys.version_info.major > 2 else unicode('<{} {}').format(self.element, self.getAttributeString())
         else:
-            rstring = _('<{}').format(self.element)
+            rstring = '<{}'.format(self.element) if sys.version_info.major > 2 else unicode('<{}').format(self.element)
         # Display children if they exist
         if self.childrenList:
             rstring += '>'
             for child in self.childrenList:
                 rstring += child.toString()
             # close with children
-            rstring += _('</{}>').format(self.element)
+            rstring += '</{}>'.format(self.element) if sys.version_info.major > 2 else unicode('</{}>').format(self.element)
         else:
             # close without children
             rstring += '/>'

@@ -1,8 +1,5 @@
-from .odsXML import *
-try:
-    _ = unicode
-except NameError:
-    _ = str
+import sys
+from .odsXML import Element
 
 class odsStyles:
     def __init__(self):
@@ -10,7 +7,10 @@ class odsStyles:
         self.initialize()
 
     def toString(self):
-        sstring = _('<?xml version="1.0" encoding="UTF-8"?>\n{}').format(self.docStyles.toString())
+        if sys.version_info.major > 2:
+            sstring = '<?xml version="1.0" encoding="UTF-8"?>\n{}'.format(self.docStyles.toString())
+        else:
+            sstring = unicode('<?xml version="1.0" encoding="UTF-8"?>\n{}').format(self.docStyles.toString())
         return sstring
 
     def initialize(self):
