@@ -13,7 +13,7 @@ with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
 if __name__ == '__main__':
     setup(name='odslib3',
           version=get_version(),
-          description='An easy to use module that creates ODS documents. Fork of odslib (https://github.com/TauPan/odslib) as looking unmaintained. Original author: Joseph Colton. Adapted for Python3.x support by Joshua Logan',
+          description='An easy to use module that creates ODS documents.',
           long_description=LONG_DESCRIPTION,
           author='Joshua Logan',
           author_email='joshua.logan@eveco.re',
@@ -23,12 +23,16 @@ if __name__ == '__main__':
           keywords='ods libreoffice',
           python_requires='>=2.7',
           classifiers=[
-              "Development Status :: 5 - Production/Stable", 
+              "Development Status :: 5 - Production/Stable",
+              "Environment :: Plugins",
               "Intended Audience :: Developers",
               "License :: OSI Approved :: GNU General Public License (GPL)",
+              "Operating System :: OS Independent",
               "Natural Language :: English",
               "Programming Language :: Python :: 2.7",
               "Programming Language :: Python :: 3",
+              "Programming Language :: Python :: 3.5",
+              "Programming Language :: Python :: 3.6",
               "Topic :: Software Development :: Libraries :: Python Modules",
               ],
           )
