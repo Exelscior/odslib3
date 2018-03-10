@@ -10,7 +10,7 @@ from . import odsStyles
 from . import odsMimetype
 from . import odsManifest
 
-__version__='1.2.0.post1'
+__version__='1.2.0.post2'
 
 def get_version():
     """
