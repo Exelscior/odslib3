@@ -9,7 +9,7 @@ PyPi project page: https://pypi.org/project/odslib3
 
 Installation
 ------------
-::
+Simply clone the repository and run the usual setuptools process::
     $> git clone https://github.com/Exelscior/odslib3.git && cd odslib3
 
     $> python setup.py {build,install}
